@@ -18,11 +18,11 @@ st.title('Twitter Scrapping')
 # Initialize connection with mongoDB
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
-def init_connection():
-    return MongoClient('localhost', 27017)
+#def init_connection():
+    #return MongoClient('localhost', 27017)
 
 
-client = init_connection()
+#client = init_connection()
 
 # Passing the arguments for scraping i.e. name of key ,staring date ,ending date and number of records
 def collect_twitter_data(search_keys,start_date_str,end_date_str,search_count):
@@ -57,6 +57,8 @@ def download_records(st):
 def upload_data(data):
     try:
         if data:
+            
+            client = MongoClient("mongodb://localhost:27017/")
             db = client['DW35']
 
             # Creating 'Scrapefromtwitter' collection in 'DW35' database
