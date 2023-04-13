@@ -18,11 +18,11 @@ st.title(':violet[Twitter Scrapping]')
 # Initialize connection with mongoDB
 # Uses st.experimental_singleton to only run once.
 @st.cache_resource
-def init_connection():
-    return MongoClient('localhost', 27017)
+#def init_connection():
+    #return MongoClient('localhost', 27017)
 
 
-client = init_connection()
+#client = init_connection()
 
 # Passing the arguments for scraping i.e. name of key ,staring date ,ending date and number of records
 def collect_twitter_data(search_keys,start_date_str,end_date_str,search_count):
@@ -48,6 +48,8 @@ def collect_twitter_data(search_keys,start_date_str,end_date_str,search_count):
     return tweets_df
 
 def upload_data(search_key):
+     def init_connection():
+         return MongoClient('localhost', 27017)
     client = init_connection()
     df=collect_twitter_data(search_keywords, endd_date_inp, start_date_inp,search_count)
 # creating database DW35
