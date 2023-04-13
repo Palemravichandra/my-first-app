@@ -64,8 +64,12 @@ def upload_data(search_key):
 # Creating search buttoons
 search_keywords = st.text_input("Search")
 search_count = st.text_input("Count")
-if search_count:
-    search_count = int(search_count)
+try:
+    search_count = st.text_input("Count") or 10
+    if search_count:
+        search_count = int(search_count)
+except Exception as e:
+    search_count = 10
 start_date = datetime.date.today()
 endd_date_str = start_date.strftime("%Y-%m-%d")
 end_date = start_date - datetime.timedelta(days=100)
