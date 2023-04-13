@@ -69,7 +69,7 @@ try:
     if search_count:
         search_count = int(search_count) or 10
 except Exception as e:
-    #search_count = 10
+    search_count = 10
 start_date = datetime.date.today()
 endd_date_str = start_date.strftime("%Y-%m-%d")
 end_date = start_date - datetime.timedelta(days=100)
