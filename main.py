@@ -70,16 +70,14 @@ try:
         search_count = int(search_count) or 10
 except Exception as e:
     search_count = 10
-#start_date = datetime.date.today()
-#endd_date_str = start_date.strftime("%Y-%m-%d")
-#end_date = start_date - datetime.timedelta(days=100)
-#start_date_str = end_date.strftime("%Y-%m-%d")
+start_date = datetime.date.today()
+endd_date_str = start_date.strftime("%Y-%m-%d")
+end_date = start_date - datetime.timedelta(days=100)
+start_date_str = end_date.strftime("%Y-%m-%d")
 
 # Creating
-#start_date_inp = st.date_input("Start Date").strftime("%Y-%m-%d") or start_date_str
-#endd_date_inp = st.date_input("End Date").strftime("%Y-%m-%d") or endd_date_str
-since, until = st.date_input('Please enter the start date to search: '), \
-                               st.date_input('please enter the finish date  :')
+start_date_inp = st.date_input("Start Date").strftime("%Y-%m-%d") or start_date_str
+endd_date_inp = st.date_input("End Date").strftime("%Y-%m-%d") or endd_date_str
 
 # scrapping  data from twitter
 search_button = st.button('Search')
