@@ -48,7 +48,8 @@ def collect_twitter_data(search_keys,start_date_str,end_date_str,search_count):
     return tweets_df
 
 def upload_data(search_key):
-    client =MongoClient("mongodb+srv://palemravichandra21a:Ravi@1234@cluster0.pwavnfn.mongodb.net/test")
+    #client =MongoClient("mongodb+srv://palemravichandra21a:Ravi@1234@cluster0.pwavnfn.mongodb.net/test")
+    client=MongoClient('localhost', 27017)
     df=collect_twitter_data(search_keywords, endd_date_inp, start_date_inp,search_count)
 # creating database DW35
     db = client['Twitterscrapping']
